@@ -1,0 +1,290 @@
+//*     === FONTS ===
+
+$font-stack: "OpenSans","OpenSansSemiBold", "RobotoCondensed", "RobotoSlab", "RobotoSlabSemiBold";
+
+//*     === COLORS === 
+
+$background-color: #f8f9fa;
+$primary-color: #892CDC;
+$secondary-color: #BEA0D3;
+$tertiary-color:  #3C415C;
+$complimentary-color: #34BEAE;
+$secondary-font-color: #A088B1;
+$primary-font-color: #79567D;
+$header-font-color: #3C415C;
+$border-color:#dee2e6;
+
+//      =====================
+//*     === COMMON STYLES ===
+//      =====================
+
+$border: 1px solid $border-color;
+
+%primary-font {
+  font-family: "OpenSans";
+  color: $primary-font-color
+}
+
+%secondary-font {
+  font-family: "OpenSans";
+  color: $secondary-font-color
+}
+
+%minor-font {
+  font-family: "RobotoCondensed";
+  color: $secondary-font-color
+  
+}
+%header-font {
+  font-family: "RobotoSlab";
+  color: $header-font-color;
+  letter-spacing: 1.5px;
+}
+
+//      ===================
+//*     === COMMON TEXT ===
+//      ===================
+
+.span-text {
+  @extend %primary-font;
+  display: block;
+
+  &__dark {
+    @extend %secondary-font;
+    letter-spacing: .5px;
+  }
+ 
+  &__bold {
+    @extend %primary-font;
+    font-weight:  bold;
+    letter-spacing: 1px;
+  }
+
+  &__italic {
+    font-style: italic;
+  }
+}
+
+.span-header {
+  @extend %header-font;
+  display: block;
+
+  &__capital {
+    @extend %header-font;
+    text-transform: capitalize;
+    &__light {
+      color: $secondary-font-color;
+      @extend %header-font;
+      text-transform: capitalize;
+    }
+  }
+
+  &__uppercase {
+    @extend %header-font;
+    text-transform: uppercase;
+    &__light {
+      color: $secondary-font-color;
+      @extend %header-font;
+      text-transform: uppercase;
+    }
+  }
+
+  &__dark {
+    @extend %header-font;
+    color: $secondary-font-color;
+  }
+
+  &__bold {
+    font-weight:  bold;
+  }
+
+  &__italic {
+    font-style: italic;
+  }
+}
+
+.title {
+  @extend %header-font;
+
+  &__text {
+    text-align: 'initial';
+    width: '60%'
+  }
+}
+
+//      ==================
+//*     === COMPONENTS ===
+//      ==================
+
+.portrait {
+  width: 15rem;
+  height: 15rem;
+  box-shadow: 0 0 0 1px whitesmoke;
+  margin: 3rem;
+  background-image: url(../src/components//portrait.png);
+  border-radius: 50%;
+  transition: box-shadow 0.5s;
+  will-change: transform;
+
+  &__main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__small {
+    background-image: url(../src/components//portraitsmall.png);
+    width: 6rem;
+    height: 6rem;
+    margin: 1rem;
+    border-radius: 50%;
+  }
+
+  &__bg {
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    margin: 2rem;
+  }
+
+  &__inner {
+    display: flex;
+    fill: $tertiary-color;
+    border-radius: 20px;
+    margin: 1rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    font-size: 2.5em;
+  }
+}
+
+%button-wrapper {
+  width: 100%;
+  position: fixed;
+  justify-content: center;
+  display: flex;
+}
+
+.button-wrapper {
+
+  &__up {
+    @extend %button-wrapper;
+    top: 2rem;
+    
+  }
+
+  &__down {
+    @extend %button-wrapper;
+    bottom: 2rem;
+  }
+}
+
+.layer-button {
+  width:  10rem;
+  height: 3rem;
+}
+
+%wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.parallax {
+  z-index: 2;
+  background-color: $background-color;
+  color: $primary-font-color;
+  top: 0;
+  left: 0;
+
+  &__wrap-left {
+    @extend %wrap;
+    justify-content: center;
+  }
+
+  &__wrap-middle {
+    @extend %wrap;
+    text-align: center;
+    
+  }
+
+  &__wrap-right {
+    @extend %wrap;
+    text-align: center;
+    color: whitesmoke;
+  }
+}
+
+.top-layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.body-text {
+  width: 100%
+}
+.bottom-layer {
+  background-color: $tertiary-color;
+}
+
+.links {
+  // z-index: 1;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 430px) and (orientation: portrait) {
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  div.portrait__header {
+    font-size: 1.5rem;
+  }
+  div.parallax__wrap-left {
+    font-size: 75%;
+    width: 100%;
+  }
+  div.top-layer {
+    flex-direction: row;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  div.portrait__header {
+    font-size: 1.5rem;
+  }
+  div.parallax__wrap-left {
+    font-size: 75%;
+    width: 100%;
+  }
+  div.body-text {
+    width: 50%;
+  }
+  div.top-layer {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 930px) {
+}
+
+@media screen and (min-width: 1065px) {
+}
+
+@media screen and (min-width: 601px) {
+}
