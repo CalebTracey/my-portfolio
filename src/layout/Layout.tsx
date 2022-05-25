@@ -8,11 +8,24 @@ import ParallaxButtonDown from '../components/ParallaxButtonDown'
 import ParallaxButtonUp from '../components/ParallaxButtonUp'
 import AboutText from '../components/AboutText'
 import TopWave from '../components/TopWave'
+import BottomNavigationBar from '../components/BottomNavigationBar'
+import BottomWave from '../components/BottomWave'
 
 const buttonTheme = createTheme({
     palette: {
         primary: {
             main: '#892CDC',
+        },
+    },
+})
+
+const bottomNavTheme = createTheme({
+    palette: {
+        primary: {
+            main: '#892CDC',
+        },
+        text: {
+            secondary: '#BEA0D3',
         },
     },
 })
@@ -52,6 +65,13 @@ const Parralax: FC = (): JSX.Element => {
             <ParallaxLayer className="bottom-layer" offset={1} speed={2}>
                 <div className="parallax__wrap-left">
                     <AboutText />
+                </div>
+                <BottomWave />
+                <div
+                    className="parallax__wrap-middle"
+                    style={{ justifyContent: 'end' }}
+                >
+                    <BottomNavigationBar bottomNavTheme={bottomNavTheme} />
                 </div>
                 <ParallaxButtonUp
                     scrollUp={scrollUp}

@@ -237,6 +237,46 @@ $border: 1px solid $border-color;
   }
 }
 
+%wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave {
+
+  &__top {
+    @extend %wave;
+    top: 0;
+  }
+
+  &__bottom {
+    @extend %wave;
+    bottom: 3rem;
+  }
+}
+
+%scaling-svg {
+  height: 100%; 
+  width: 100%; 
+  left: 0; 
+ }
+
+.scaling-svg {
+  
+  &__top {
+    @extend %scaling-svg;
+    top: 0;
+  }
+
+  &__bottom {
+    @extend %scaling-svg;
+    bottom: 0;
+  }
+}
+
 .top-layer {
   display: flex;
   justify-content: center;
@@ -251,7 +291,7 @@ $border: 1px solid $border-color;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   background-color: $tertiary-color;
 }
 
@@ -289,15 +329,18 @@ $border: 1px solid $border-color;
     flex-direction: row;
   }
 
-}
+  div.wave__top {
+    position: absolute; 
+    top: auto !important;
+    height: 0;
+    bottom: 0;
+    padding: 0;
+    padding-bottom: 80%; 
+  }
 
-.top-waves {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+  .scaling-svg__top {
+    position: absolute;
+  }
 }
 
 @media screen and (max-width: 450px) {

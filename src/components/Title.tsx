@@ -14,6 +14,7 @@ const Title: FC = (): JSX.Element => {
             opacity: 1,
         })
     }, [api])
+
     return (
         <animated.div
             style={{

@@ -19,6 +19,7 @@ const TitleSubText: FC = (): JSX.Element => {
             delay: 300,
         })
     }, [api])
+
     return (
         <animated.div
             style={{

@@ -10,7 +10,7 @@ interface Props {
 
 const PortraitCard: FC<Props> = ({ buttonTheme }) => {
     const [menuIn, setMenuIn] = useSpring(() => ({
-        left: '-25%',
+        left: '-100%',
     }))
 
     useEffect(() => {

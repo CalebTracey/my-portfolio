@@ -3,15 +3,12 @@ import React, { FC } from 'react'
 
 const TopWave: FC = () => {
     return (
-        <div className="top-waves">
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path
-                    fill="#892CDC"
-                    fillOpacity="0.75"
-                    d="M0,288L30,256C60,224,120,160,180,138.7C240,117,300,139,360,154.7C420,171,480,181,540,208C600,235,660,277,720,277.3C780,277,840,235,900,224C960,213,1020,235,1080,250.7C1140,267,1200,277,1260,245.3C1320,213,1380,139,1410,101.3L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"
-                />
-            </svg> */}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <div className="wave__top">
+            <svg
+                className="scaling-svg__top"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1440 320"
+            >
                 <path
                     fill="#3C415C"
                     fillOpacity="1"
