@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FC } from 'react'
+import React, { useEffect, FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { Theme } from '@mui/material'
 import Portrait from '../components/Portrait'
@@ -9,18 +9,9 @@ interface Props {
 }
 
 const PortraitCard: FC<Props> = ({ buttonTheme }) => {
-    const [width, setWidth] = useState<'100%' | 'auto'>('auto')
     const [menuIn, setMenuIn] = useSpring(() => ({
         left: '-25%',
     }))
-
-    useEffect(() => {
-        if (window.innerWidth <= 450) {
-            setWidth('100%')
-        } else {
-            setWidth('auto')
-        }
-    }, [width, setWidth])
 
     useEffect(() => {
         setTimeout(() => setMenuIn({ left: '0px' }), 100)
@@ -28,10 +19,9 @@ const PortraitCard: FC<Props> = ({ buttonTheme }) => {
 
     return (
         <animated.div
+            className="portrait-card"
             style={{
                 marginLeft: menuIn.left,
-                position: 'fixed',
-                width,
             }}
         >
             <div className="portrait__bg">

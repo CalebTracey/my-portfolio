@@ -122,6 +122,10 @@ $border: 1px solid $border-color;
 //*     === COMPONENTS ===
 //      ==================
 
+.portrait-card {
+  position: 'fixed',
+}
+
 .portrait {
   width: 15rem;
   height: 15rem;
@@ -262,6 +266,18 @@ $border: 1px solid $border-color;
 }
 
 @media screen and (max-width: 900px) and (orientation: landscape) {
+  .portrait {
+    background-image: url(../src/components//portraitsmall.png);
+    width: 6rem;
+    height: 6rem;
+    margin: 1rem;
+    border-radius: 50%;
+  }
+
+  .portrait-card {
+    width: 100%,
+  }
+
   div.portrait__header {
     font-size: 1.5rem;
   }
@@ -276,6 +292,18 @@ $border: 1px solid $border-color;
 }
 
 @media screen and (max-width: 450px) {
+  .portrait {
+    background-image: url(../src/components//portraitsmall.png);
+    width: 6rem;
+    height: 6rem;
+    margin: 1rem;
+    border-radius: 50%;
+  }
+
+  .portrait-card {
+    width: 100%,
+  }
+
   div.portrait__header {
     font-size: 1.5rem;
   }
