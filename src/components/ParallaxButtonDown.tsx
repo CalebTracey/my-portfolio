@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import IconButton from '@mui/material/IconButton'
+import Fab from '@mui/material/Fab'
 import { Theme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 
@@ -13,14 +13,14 @@ const ParallaxButtonDown: FC<Props> = ({ scrollDown, buttonTheme }) => {
     return (
         <div className="button-wrapper__down">
             <ThemeProvider theme={buttonTheme}>
-                <IconButton
+                <Fab
                     aria-label="down"
                     size="large"
                     color="primary"
                     onClick={() => scrollDown()}
                 >
                     <ArrowDownwardIcon fontSize="large" />
-                </IconButton>
+                </Fab>
             </ThemeProvider>
         </div>
     )
