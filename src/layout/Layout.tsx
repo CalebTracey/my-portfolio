@@ -48,11 +48,9 @@ const Parralax: FC = (): JSX.Element => {
                 />
             </ParallaxLayer>
             <ParallaxLayer className="bottom-layer" offset={1} speed={2}>
-                {/* <div className="parallax__wrap-middle" /> */}
-                <div className="parallax__wrap-middle">
+                <div className="parallax__wrap-left">
                     <AboutText />
                 </div>
-                {/* <div className="parallax__wrap-right" /> */}
                 <ParallaxButtonUp
                     scrollUp={scrollUp}
                     buttonTheme={buttonTheme}

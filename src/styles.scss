@@ -279,12 +279,16 @@ $border: 1px solid $border-color;
   div.portrait__header {
     font-size: 1.5rem;
   }
+  div.parallax__wrap-middle {
+    margin-top: 2rem;
+    
+  }
   div.parallax__wrap-left {
     font-size: 75%;
-    width: 100%;
+    // width: 75%;
   }
   div.body-text {
-    width: 50%;
+    width: 75%;
   }
   div.top-layer {
     flex-direction: column;
