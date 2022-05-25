@@ -291,6 +291,15 @@ $border: 1px solid $border-color;
 
 }
 
+.top-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
 @media screen and (max-width: 450px) {
   .portrait {
     background-image: url(../src/components//portraitsmall.png);

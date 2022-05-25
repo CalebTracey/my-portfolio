@@ -7,6 +7,7 @@ import PortraitCard from '../containers/PortraitCard'
 import ParallaxButtonDown from '../components/ParallaxButtonDown'
 import ParallaxButtonUp from '../components/ParallaxButtonUp'
 import AboutText from '../components/AboutText'
+import TopWave from '../components/TopWave'
 
 const buttonTheme = createTheme({
     palette: {
@@ -34,6 +35,7 @@ const Parralax: FC = (): JSX.Element => {
     return (
         <Parallax className="parallax" ref={parallax} pages={2}>
             <ParallaxLayer className="top-layer" offset={0} speed={2.5}>
+                <TopWave />
                 <div className="parallax__wrap-middle">
                     <PortraitCard buttonTheme={buttonTheme} />
                 </div>
