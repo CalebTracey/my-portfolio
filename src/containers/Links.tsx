@@ -5,13 +5,11 @@ import GitHub from '../components/links/GitHub'
 import Instagram from '../components/links/Instagram'
 import LinkedIn from '../components/links/LinkedIn'
 
-// type TLink = { link: string }
 interface Props {
     buttonTheme: Theme
 }
 const Links: FC<Props> = ({ buttonTheme }) => {
     const handlePageChange = (link: string): void => {
-        // console.log(e.currentTarget)
         window.open(link, '_blank')
     }
     return (

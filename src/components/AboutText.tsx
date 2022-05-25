@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 const text =
     // eslint-disable-next-line max-len
-    "I'm a software engineer with a degree in Computer Science based in Portland, Maine."
+    'This over-engineered vanity site is a work in progress.'
 
 const AboutText: FC = () => {
     return (

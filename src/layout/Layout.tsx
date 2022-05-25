@@ -6,6 +6,7 @@ import TitleSubText from '../components/TitleSubText'
 import PortraitCard from '../containers/PortraitCard'
 import ParallaxButtonDown from '../components/ParallaxButtonDown'
 import ParallaxButtonUp from '../components/ParallaxButtonUp'
+import AboutText from '../components/AboutText'
 
 const buttonTheme = createTheme({
     palette: {
@@ -47,6 +48,11 @@ const Parralax: FC = (): JSX.Element => {
                 />
             </ParallaxLayer>
             <ParallaxLayer className="bottom-layer" offset={1} speed={2}>
+                {/* <div className="parallax__wrap-middle" /> */}
+                <div className="parallax__wrap-middle">
+                    <AboutText />
+                </div>
+                {/* <div className="parallax__wrap-right" /> */}
                 <ParallaxButtonUp
                     scrollUp={scrollUp}
                     buttonTheme={buttonTheme}

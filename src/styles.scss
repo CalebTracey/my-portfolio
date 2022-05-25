@@ -53,6 +53,12 @@ $border: 1px solid $border-color;
     @extend %secondary-font;
     letter-spacing: .5px;
   }
+
+  &__light {
+    @extend %secondary-font;
+    color: white;
+    letter-spacing: .5px;
+  }
  
   &__bold {
     @extend %primary-font;
@@ -216,6 +222,7 @@ $border: 1px solid $border-color;
   &__wrap-middle {
     @extend %wrap;
     text-align: center;
+    justify-content: center;
     
   }
 
@@ -237,12 +244,16 @@ $border: 1px solid $border-color;
   width: 100%
 }
 .bottom-layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   background-color: $tertiary-color;
 }
 
 .links {
-  // z-index: 1;
   padding-top: 1rem;
+  padding-bottom: 2rem;
   display: flex;
   justify-content: center;
 }
