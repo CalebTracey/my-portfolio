@@ -1,19 +1,24 @@
 import React, { useEffect, FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
-const Title: FC = (): JSX.Element => {
+interface Props {
+    text: string
+    startX: number
+    endX: number
+}
+const AnimatedHeaderDark: FC<Props> = ({ text, startX, endX }) => {
     const [styles, api] = useSpring(() => ({
-        from: { x: -100, opacity: 0 },
+        from: { x: startX, opacity: 0 },
         config: { frequency: 1 },
     }))
     useEffect(() => {
         api.start({ config: { velocity: 0 } })
         api.start({ config: { friction: 20 } })
         api({
-            x: 50,
+            x: endX,
             opacity: 1,
         })
-    }, [api])
+    }, [api, endX])
 
     return (
         <animated.div
@@ -28,10 +33,10 @@ const Title: FC = (): JSX.Element => {
                 className="span-header body-text"
                 style={{ fontSize: '2em', paddingBottom: '.5em' }}
             >
-                Hi there!
+                {text}
             </div>
         </animated.div>
     )
 }
 
-export default Title
+export default AnimatedHeaderDark

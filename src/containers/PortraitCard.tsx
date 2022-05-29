@@ -6,9 +6,15 @@ import Links from './Links'
 
 interface Props {
     buttonTheme: Theme
+    handlePageChange: (link: string) => void
+    handleWindowLocationHref: (link: string) => void
 }
 
-const PortraitCard: FC<Props> = ({ buttonTheme }) => {
+const PortraitCard: FC<Props> = ({
+    buttonTheme,
+    handlePageChange,
+    handleWindowLocationHref,
+}) => {
     const [menuIn, setMenuIn] = useSpring(() => ({
         left: '-100%',
     }))
@@ -32,7 +38,11 @@ const PortraitCard: FC<Props> = ({ buttonTheme }) => {
                     <div className="span-header portrait__header">
                         Caleb Tracey
                     </div>
-                    <Links buttonTheme={buttonTheme} />
+                    <Links
+                        handlePageChange={handlePageChange}
+                        handleWindowLocationHref={handleWindowLocationHref}
+                        buttonTheme={buttonTheme}
+                    />
                 </div>
             </div>
         </animated.div>

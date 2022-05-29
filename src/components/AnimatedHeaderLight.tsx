@@ -1,24 +1,33 @@
 import React, { useEffect, FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
-const text =
-    // eslint-disable-next-line max-len
-    "I'm a software engineer with a degree in Computer Science based in Portland, Maine."
-
-const TitleSubText: FC = (): JSX.Element => {
+interface Props {
+    text: string
+    fontSize: string
+    delay: number
+    startX: number
+    endX: number
+}
+const AnimatedHeaderLight: FC<Props> = ({
+    text,
+    fontSize,
+    delay,
+    startX,
+    endX,
+}) => {
     const [styles, api] = useSpring(() => ({
-        from: { x: -100, opacity: 0 },
+        from: { x: startX, opacity: 0 },
         config: { frequency: 1 },
     }))
     useEffect(() => {
         api.start({ config: { velocity: 0 } })
         api.start({ config: { friction: 20 } })
         api({
-            x: 100,
+            x: endX,
             opacity: 1,
-            delay: 300,
+            delay,
         })
-    }, [api])
+    }, [api, endX, delay])
 
     return (
         <animated.div
@@ -29,13 +38,14 @@ const TitleSubText: FC = (): JSX.Element => {
                 ...styles,
             }}
         >
-            <div className="title__text body-text">
-                <span className="span-text__dark" style={{ fontSize: '1.5em' }}>
-                    {text}
-                </span>
+            <div
+                className="span-header__light body-text"
+                style={{ fontSize, paddingBottom: '.5em' }}
+            >
+                {text}
             </div>
         </animated.div>
     )
 }
 
-export default TitleSubText
+export default AnimatedHeaderLight

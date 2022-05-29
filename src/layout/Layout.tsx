@@ -1,15 +1,9 @@
+/* eslint-disable max-len */
 import React, { FC, useRef } from 'react'
-import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax'
+import { Parallax, IParallax } from '@react-spring/parallax'
 import { createTheme } from '@mui/material/styles'
-import Title from '../components/Title'
-import TitleSubText from '../components/TitleSubText'
-import PortraitCard from '../containers/PortraitCard'
-import ParallaxButtonDown from '../components/ParallaxButtonDown'
-import ParallaxButtonUp from '../components/ParallaxButtonUp'
-import AboutText from '../components/AboutText'
-import TopWave from '../components/TopWave'
-import BottomNavigationBar from '../components/BottomNavigationBar'
-import BottomWave from '../components/BottomWave'
+import ParallaxTop from '../containers/ParallaxTop'
+import ParallaxBottom from '../containers/ParallaxBottom'
 
 const buttonTheme = createTheme({
     palette: {
@@ -33,6 +27,14 @@ const bottomNavTheme = createTheme({
 const Parralax: FC = (): JSX.Element => {
     const parallax = useRef<IParallax | null>(null)
 
+    const handlePageChange = (link: string): void => {
+        window.open(link, '_blank')
+    }
+
+    const handleWindowLocationHref = (link: string): void => {
+        window.location.href = link
+    }
+
     const scrollDown = (): void => {
         if (parallax.current) {
             parallax.current.scrollTo(2)
@@ -47,37 +49,19 @@ const Parralax: FC = (): JSX.Element => {
 
     return (
         <Parallax className="parallax" ref={parallax} pages={2}>
-            <ParallaxLayer className="top-layer" offset={0} speed={2.5}>
-                <TopWave />
-                <div className="parallax__wrap-middle">
-                    <PortraitCard buttonTheme={buttonTheme} />
-                </div>
-                <div className="parallax__wrap-left">
-                    <Title />
-                    <TitleSubText />
-                </div>
-                <div className="parallax__wrap-right" />
-                <ParallaxButtonDown
-                    scrollDown={scrollDown}
-                    buttonTheme={buttonTheme}
-                />
-            </ParallaxLayer>
-            <ParallaxLayer className="bottom-layer" offset={1} speed={2}>
-                <div className="parallax__wrap-left">
-                    <AboutText />
-                </div>
-                <BottomWave />
-                <div
-                    className="parallax__wrap-middle"
-                    style={{ justifyContent: 'end' }}
-                >
-                    <BottomNavigationBar bottomNavTheme={bottomNavTheme} />
-                </div>
-                <ParallaxButtonUp
-                    scrollUp={scrollUp}
-                    buttonTheme={buttonTheme}
-                />
-            </ParallaxLayer>
+            <ParallaxTop
+                scrollDown={scrollDown}
+                handlePageChange={handlePageChange}
+                handleWindowLocationHref={handleWindowLocationHref}
+                buttonTheme={buttonTheme}
+            />
+            <ParallaxBottom
+                scrollUp={scrollUp}
+                handlePageChange={handlePageChange}
+                handleWindowLocationHref={handleWindowLocationHref}
+                buttonTheme={buttonTheme}
+                bottomNavTheme={bottomNavTheme}
+            />
         </Parallax>
     )
 }

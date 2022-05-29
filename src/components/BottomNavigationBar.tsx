@@ -10,10 +10,54 @@ import { ThemeProvider } from '@mui/material/styles'
 
 interface Props {
     bottomNavTheme: Theme
+    projectsSelected: boolean
+    aboutMeSelected: boolean
+    getInTouchSelected: boolean
+    setProjectsSelected: (projectsSelected: boolean) => void
+    setAboutMeSelected: (aboutMeSelected: boolean) => void
+    setGetInTouchSelected: (getInTouchSelected: boolean) => void
 }
 
-const BottomNavigationBar: FC<Props> = ({ bottomNavTheme }) => {
+const BottomNavigationBar: FC<Props> = ({
+    bottomNavTheme,
+    projectsSelected,
+    aboutMeSelected,
+    getInTouchSelected,
+    setProjectsSelected,
+    setAboutMeSelected,
+    setGetInTouchSelected,
+}) => {
     const [value, setValue] = useState(0)
+
+    const handleProjectsSelected = (): void => {
+        setProjectsSelected(!projectsSelected)
+        if (aboutMeSelected) {
+            setAboutMeSelected(false)
+        }
+        if (getInTouchSelected) {
+            setGetInTouchSelected(false)
+        }
+    }
+
+    const handleAboutMeSelected = (): void => {
+        setAboutMeSelected(!aboutMeSelected)
+        if (projectsSelected) {
+            setProjectsSelected(false)
+        }
+        if (getInTouchSelected) {
+            setGetInTouchSelected(false)
+        }
+    }
+
+    const handleGetInTouchSelected = (): void => {
+        setGetInTouchSelected(!getInTouchSelected)
+        if (projectsSelected) {
+            setProjectsSelected(false)
+        }
+        if (aboutMeSelected) {
+            setAboutMeSelected(false)
+        }
+    }
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -29,16 +73,19 @@ const BottomNavigationBar: FC<Props> = ({ bottomNavTheme }) => {
                     }}
                 >
                     <BottomNavigationAction
-                        label="Projects"
-                        icon={<WorkIcon />}
-                    />
-                    <BottomNavigationAction
                         label="About me"
                         icon={<EmojiPeopleIcon />}
+                        onClick={() => handleAboutMeSelected()}
+                    />
+                    <BottomNavigationAction
+                        label="Projects"
+                        icon={<WorkIcon />}
+                        onClick={() => handleProjectsSelected()}
                     />
                     <BottomNavigationAction
                         label="Get in touch"
                         icon={<ContactMailIcon />}
+                        onClick={() => handleGetInTouchSelected()}
                     />
                 </BottomNavigation>
             </ThemeProvider>
