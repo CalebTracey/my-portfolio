@@ -60,7 +60,7 @@ const BottomNavigationBar: FC<Props> = ({
     // }
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', zIndex: '20' }}>
             <ThemeProvider theme={bottomNavTheme}>
                 <BottomNavigation
                     showLabels

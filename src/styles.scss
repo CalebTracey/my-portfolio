@@ -334,6 +334,7 @@ svg {
   }
 
   &__bottom {
+    z-index: 20;
     transform: scaleY(50%) translateY(52%);
     filter: drop-shadow(3px -5px 2px rgb(0 0 0 / 0.4));
   }
@@ -371,6 +372,11 @@ svg {
   z-index: 10;
 }
 
+.bottom-title {
+  display: flex;
+  flex-direction: row;
+}
+
 .links {
   width: 65%;
   padding-top: 1rem;
@@ -383,23 +389,36 @@ svg {
 }
 
 @media screen and (max-width: 900px) and (orientation: landscape) {
-  // .portrait {
-  //   margin-bottom: 0;
-  // }
-  // .portrait-card {
-  //   width: 100%,
-  // }
+  .portrait-card {
+    height: 100%,
+  }
 
-  // div.portrait__header {
-  //   font-size: 1.5rem;
-  // }
-  // div.parallax__wrap-left {
-  //   font-size: 75%;
-  //   width: 100%;
-  // }
-  // div.top-layer {
-  //   flex-direction: row;
-  // }
+  .portrait__inner {
+    margin: 0;
+  }
+
+  span.portrait__header {
+    font-size: 1.5rem;
+  }
+
+  div.links {
+    width: unset;
+  }
+
+  div.page-container {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75%;
+  }
+
+  div.parallax__wrap-top {
+    top: 2rem;
+  }
+
+  div.bottom-title {
+    font-size: 1rem;
+  }
 
   div.page-container {
     padding: 0;
@@ -407,7 +426,7 @@ svg {
 
   div.wave__top {
     position: absolute; 
-    top: auto !important;
+    // top: auto !important;
     height: 0;
     bottom: 0;
     padding: 0;
@@ -427,8 +446,12 @@ svg {
 
   div.animated-text-container {
     margin: 0;
-    margin-top: 1rem;
+    margin-top: 0;
     width: 100%;
+  }
+
+  div.bottom-title {
+    font-size: 1.25rem;
   }
 
   div.page-container {

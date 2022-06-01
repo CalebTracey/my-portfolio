@@ -33,9 +33,17 @@ const AboutMe: FC<Props> = ({ aboutMeSelected }) => {
     })
 
     useEffect(() => {
-        if (direction !== 'column' && window.innerWidth <= 900) {
+        if (
+            direction !== 'column' &&
+            window.innerWidth <= 900 &&
+            window.innerHeight >= 750
+        ) {
             setDirection('column')
-        } else if (direction !== 'row' && window.innerWidth >= 900) {
+        } else if (
+            direction !== 'row' &&
+            window.innerWidth >= 900 &&
+            window.innerHeight <= 750
+        ) {
             setDirection('row')
         }
     }, [direction])
@@ -46,25 +54,19 @@ const AboutMe: FC<Props> = ({ aboutMeSelected }) => {
                 <Container maxWidth="xl">
                     <div style={{ display: 'flex', flexDirection: direction }}>
                         <div className="portrait__content__bot">
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                }}
-                            >
+                            <div className="bottom-title">
                                 <Stack
                                     spacing={2}
                                     direction="row"
                                     sx={{
                                         marginBottom: '1rem',
-                                        // fontStyle: 'italic',
                                         textTransform: 'uppercase',
                                     }}
                                 >
                                     <AnimatedHeader
                                         text="Caleb"
                                         delay={1500}
-                                        fontSize="2rem"
+                                        // fontSize="2rem"
                                         fontColor="__primary"
                                         usePaddingBottom
                                         endX={0}
@@ -72,7 +74,7 @@ const AboutMe: FC<Props> = ({ aboutMeSelected }) => {
                                     <AnimatedHeader
                                         text="Tracey"
                                         delay={1000}
-                                        fontSize="2rem"
+                                        // fontSize="2rem"
                                         fontColor="__light"
                                         usePaddingBottom
                                         endX={0}
