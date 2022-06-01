@@ -3,22 +3,30 @@ import { useSpring, animated } from '@react-spring/web'
 
 interface Props {
     text: string
-    startX: number
-    endX: number
+    fontSize?: string
+    fontColor?: string
+    delay?: number
+    startX?: number
+    endX?: number
 }
-const AnimatedHeaderDark: FC<Props> = ({ text, startX, endX }) => {
+const AnimatedText: FC<Props> = (props: Props): JSX.Element => {
+    const { text, fontSize, fontColor, delay, startX, endX } = props
     const [styles, api] = useSpring(() => ({
         from: { x: startX, opacity: 0 },
         config: { frequency: 1 },
     }))
+
+    const className = `span-text${fontColor}`
+
     useEffect(() => {
         api.start({ config: { velocity: 0 } })
         api.start({ config: { friction: 20 } })
         api({
             x: endX,
             opacity: 1,
+            delay,
         })
-    }, [api, endX])
+    }, [api, delay, endX])
 
     return (
         <animated.div
@@ -29,14 +37,19 @@ const AnimatedHeaderDark: FC<Props> = ({ text, startX, endX }) => {
                 ...styles,
             }}
         >
-            <div
-                className="span-header body-text"
-                style={{ fontSize: '2em', paddingBottom: '.5em' }}
-            >
+            <span className={className} style={{ fontSize }}>
                 {text}
-            </div>
+            </span>
         </animated.div>
     )
 }
 
-export default AnimatedHeaderDark
+AnimatedText.defaultProps = {
+    fontSize: '1rem',
+    fontColor: '',
+    startX: -200,
+    endX: 0,
+    delay: 300,
+}
+
+export default AnimatedText

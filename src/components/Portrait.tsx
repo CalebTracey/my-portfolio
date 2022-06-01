@@ -1,5 +1,6 @@
 import React, { useRef, useState, FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
+import portrait from './portrait.png'
 
 const calc = (x: number, y: number, rect: any): number[] => [
     -(y - rect.top - rect.height / 2) / 5,
@@ -15,19 +16,24 @@ const Portrait: FC = (): JSX.Element => {
     const props = useSpring({ xys })
 
     return (
-        <div className="portrait__main" ref={ref}>
-            <animated.div
-                className="portrait"
-                style={{ transform: props.xys.to(trans) }}
-                onMouseLeave={() => set([0, 0, 1])}
-                onMouseMove={(e) => {
-                    const rect = ref.current
-                        ? ref.current.getBoundingClientRect()
-                        : null
-                    set(calc(e.clientX, e.clientY, rect))
-                }}
+        <animated.div
+            className="portrait__animated"
+            ref={ref}
+            style={{ transform: props.xys.to(trans) }}
+            onMouseLeave={() => set([0, 0, 1])}
+            onMouseMove={(e) => {
+                const rect = ref.current
+                    ? ref.current.getBoundingClientRect()
+                    : null
+                set(calc(e.clientX, e.clientY, rect))
+            }}
+        >
+            <img
+                src={portrait}
+                alt="portrait"
+                style={{ borderRadius: '50%' }}
             />
-        </div>
+        </animated.div>
     )
 }
 

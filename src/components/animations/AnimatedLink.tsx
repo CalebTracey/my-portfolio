@@ -1,33 +1,28 @@
 import React, { useEffect, FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
+import { Link } from '@mui/material'
 
-interface Props {
+type Props = {
     text: string
-    fontSize: string
+    href: string
     delay: number
-    startX: number
-    endX: number
 }
-const AnimatedHeaderLight: FC<Props> = ({
-    text,
-    fontSize,
-    delay,
-    startX,
-    endX,
-}) => {
+
+const AnimatedLink: FC<Props> = ({ text, href, delay }) => {
     const [styles, api] = useSpring(() => ({
-        from: { x: startX, opacity: 0 },
+        from: { x: -200, opacity: 0 },
         config: { frequency: 1 },
     }))
+
     useEffect(() => {
         api.start({ config: { velocity: 0 } })
         api.start({ config: { friction: 20 } })
         api({
-            x: endX,
+            x: 0,
             opacity: 1,
             delay,
         })
-    }, [api, endX, delay])
+    }, [api, delay])
 
     return (
         <animated.div
@@ -38,14 +33,11 @@ const AnimatedHeaderLight: FC<Props> = ({
                 ...styles,
             }}
         >
-            <div
-                className="span-header__light body-text"
-                style={{ fontSize, paddingBottom: '.5em' }}
-            >
-                {text}
-            </div>
+            <Link href={href}>
+                <span className="span-header__light">{text}</span>
+            </Link>
         </animated.div>
     )
 }
 
-export default AnimatedHeaderLight
+export default AnimatedLink

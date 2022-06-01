@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { Theme } from '@mui/material'
 import { ParallaxLayer } from '@react-spring/parallax'
-import AnimatedHeaderDark from '../components/AnimatedHeaderDark'
+import AnimatedHeader from '../components/animations/AnimatedHeader'
 import PortraitCard from './PortraitCard'
 import ParallaxButtonDown from '../components/ParallaxButtonDown'
-import TopWave from '../components/TopWave'
-import AnimatedTextDark from '../components/AnimatedTextDark'
+import TopWave from '../components/TopWaveSVG'
+import AnimatedText from '../components/animations/AnimatedText'
 
 const landingText =
     // eslint-disable-next-line max-len
@@ -27,18 +27,27 @@ const ParallaxTop: FC<Props> = ({
     return (
         <ParallaxLayer className="top-layer" offset={0} speed={2.5}>
             <TopWave />
-            <div className="parallax__wrap-middle">
+            <div className="parallax__wrap-left">
                 <PortraitCard
                     handlePageChange={handlePageChange}
                     handleWindowLocationHref={handleWindowLocationHref}
                     buttonTheme={buttonTheme}
                 />
             </div>
-            <div className="parallax__wrap-left">
-                <AnimatedHeaderDark text="Hi There!" startX={-100} endX={100} />
-                <AnimatedTextDark text={landingText} />
+            <div className="parallax__wrap-right">
+                <AnimatedHeader
+                    text="Hi There!"
+                    startX={-100}
+                    endX={10}
+                    fontSize="1.5rem"
+                    usePaddingBottom
+                />
+                <AnimatedText
+                    text={landingText}
+                    fontSize="1.25rem"
+                    fontColor="__dark"
+                />
             </div>
-            <div className="parallax__wrap-right" />
             <ParallaxButtonDown
                 scrollDown={scrollDown}
                 buttonTheme={buttonTheme}

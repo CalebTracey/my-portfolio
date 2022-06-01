@@ -35,9 +35,9 @@ const PortraitCard: FC<Props> = ({
                     <Portrait />
                 </div>
                 <div className="portrait__content">
-                    <div className="span-header portrait__header">
+                    <span className="span-header portrait__header">
                         Caleb Tracey
-                    </div>
+                    </span>
                     <Links
                         handlePageChange={handlePageChange}
                         handleWindowLocationHref={handleWindowLocationHref}

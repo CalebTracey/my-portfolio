@@ -4,7 +4,7 @@ import { ParallaxLayer } from '@react-spring/parallax'
 import { Theme } from '@mui/material'
 import ParallaxButtonUp from '../components/ParallaxButtonUp'
 import BottomNavigationBar from '../components/BottomNavigationBar'
-import BottomWave from '../components/BottomWave'
+import BottomWave from '../components/BottomWaveSVG'
 import Pages from './Pages'
 
 type Props = {
@@ -28,7 +28,7 @@ const ParallaxBottom: FC<Props> = ({
 
     return (
         <ParallaxLayer className="bottom-layer" offset={1} speed={2}>
-            <div className="parallax__wrap-left">
+            <div className="parallax__wrap-top">
                 <Pages
                     handlePageChange={handlePageChange}
                     handleWindowLocationHref={handleWindowLocationHref}
@@ -38,12 +38,8 @@ const ParallaxBottom: FC<Props> = ({
                     getInTouchSelected={getInTouchSelected}
                 />
             </div>
-            <BottomWave />
-            <div className="parallax__wrap-right" />
-            <div
-                className="parallax__wrap-middle"
-                style={{ justifyContent: 'end' }}
-            >
+            <div className="parallax__wrap-bottom">
+                <BottomWave />
                 <BottomNavigationBar
                     bottomNavTheme={bottomNavTheme}
                     projectsSelected={projectsSelected}
@@ -54,7 +50,6 @@ const ParallaxBottom: FC<Props> = ({
                     setGetInTouchSelected={setGetInTouchSelected}
                 />
             </div>
-
             <ParallaxButtonUp scrollUp={scrollUp} buttonTheme={buttonTheme} />
         </ParallaxLayer>
     )

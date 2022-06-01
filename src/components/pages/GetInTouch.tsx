@@ -2,33 +2,31 @@
 import React, { FC } from 'react'
 import { animated, config, useTransition } from '@react-spring/web'
 import { Container, Theme } from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import AnimatedTextLight from '../AnimatedTextLight'
-import AnimatedIcon from '../AnimatedIcon'
-import AnimatedHeaderLight from '../AnimatedHeaderLight'
+import { Email, LinkedIn } from '@mui/icons-material'
+import AnimatedText from '../animations/AnimatedText'
+import AnimatedIcon from '../animations/AnimatedIcon'
 
-const text1 =
-    'This website was built using react, react-spring, material-ui, and sass.'
-
-const text2 =
-    "A full stack web application built with react, spring boot, AWS S3, and mongoDB. \nThe application serves a hospital's fellowship program through their Department of Emergency Ultrasound. Find more information in the project's ReadMe."
+const text1 = 'The best way to reach me is email.'
+const text2 = "I'm always happy to connect on LinkedIn as well!"
 
 interface Props {
-    projectsSelected: boolean
+    getInTouchSelected: boolean
     handlePageChange: (link: string) => void
+    handleWindowLocationHref: (link: string) => void
     buttonTheme: Theme
 }
 
-const Projects: FC<Props> = ({
-    projectsSelected,
-    handlePageChange,
+const GetInTouch: FC<Props> = ({
+    getInTouchSelected,
     buttonTheme,
+    handlePageChange,
+    handleWindowLocationHref,
 }) => {
-    const transition = useTransition(projectsSelected, {
+    const transition = useTransition(getInTouchSelected, {
         from: { x: -1000, y: 0, opacity: 0 },
         enter: { x: 0, y: 0, opacity: 1 },
         leave: { x: 1000, y: 0, opacity: 0 },
-        reverse: projectsSelected,
+        reverse: getInTouchSelected,
         config: config.stiff,
         delay: 300,
     })
@@ -47,10 +45,11 @@ const Projects: FC<Props> = ({
                 >
                     <span
                         className="span-header__light"
-                        style={{ fontSize: '2rem', paddingBottom: '2rem' }}
+                        style={{ fontSize: '2rem' }}
                     >
-                        Projects
+                        Get In Touch
                     </span>
+
                     <Container>
                         <div
                             style={{
@@ -59,29 +58,28 @@ const Projects: FC<Props> = ({
                                 textAlign: 'initial',
                             }}
                         >
-                            <div className="flex-row-center">
-                                <AnimatedHeaderLight
-                                    text="1540 Project"
-                                    fontSize="1.5rem"
-                                    delay={400}
-                                    startX={-1000}
-                                    endX={10}
-                                />
+                            <div
+                                className="flex-row-center"
+                                style={{
+                                    marginTop: '2rem',
+                                }}
+                            >
+                                <AnimatedText text={text1} delay={800} />
                                 <AnimatedIcon
-                                    icon={<GitHubIcon fontSize="large" />}
-                                    iconLabel="1540"
-                                    startX={-1000}
+                                    icon={<Email fontSize="large" />}
+                                    startX={300}
                                     endX={20}
-                                    link="https://github.com/CalebTracey/ultrasound-app"
-                                    delay={200}
-                                    handlePageChange={handlePageChange}
+                                    iconLabel="email"
+                                    link="mailto:caleb.tracey@gmail.com"
+                                    delay={600}
+                                    handleWindowLocationHref={
+                                        handleWindowLocationHref
+                                    }
                                     buttonTheme={buttonTheme}
                                     timeoutStart={850}
                                     timeoutEnd={1100}
                                 />
                             </div>
-
-                            <AnimatedTextLight text={text2} delay={800} />
 
                             <div
                                 className="flex-row-center"
@@ -89,14 +87,14 @@ const Projects: FC<Props> = ({
                                     marginTop: '2rem',
                                 }}
                             >
-                                <AnimatedTextLight text={text1} delay={800} />
+                                <AnimatedText text={text2} delay={2000} />
                                 <AnimatedIcon
-                                    icon={<GitHubIcon fontSize="large" />}
-                                    iconLabel="portfolio"
-                                    startX={500}
+                                    icon={<LinkedIn fontSize="large" />}
+                                    startX={300}
                                     endX={20}
-                                    link="https://github.com/CalebTracey"
-                                    delay={600}
+                                    iconLabel="linkedin"
+                                    link="https://www.linkedin.com/in/caleb-tracey/"
+                                    delay={1800}
                                     handlePageChange={handlePageChange}
                                     buttonTheme={buttonTheme}
                                     timeoutStart={850}
@@ -113,4 +111,4 @@ const Projects: FC<Props> = ({
     })
 }
 
-export default Projects
+export default GetInTouch

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, ReactElement } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { Theme } from '@mui/material'
-import Icon from './Icon'
+import IconButton from '../IconButton'
 
 interface Props {
     icon: ReactElement
@@ -35,6 +35,7 @@ const AnimatedIcon: FC<Props> = (props: Props) => {
         from: { x: startX, opacity: 0 },
         config: { frequency: 1 },
     }))
+
     useEffect(() => {
         api.start({ config: { velocity: 0 } })
         api.start({ config: { friction: 20 } })
@@ -44,6 +45,7 @@ const AnimatedIcon: FC<Props> = (props: Props) => {
             delay,
         })
     }, [api, delay, endX])
+
     return (
         <animated.div
             style={{
@@ -54,7 +56,7 @@ const AnimatedIcon: FC<Props> = (props: Props) => {
                 ...styles,
             }}
         >
-            <Icon
+            <IconButton
                 handlePageChange={handlePageChange}
                 handleWindowLocationHref={handleWindowLocationHref}
                 component={icon}

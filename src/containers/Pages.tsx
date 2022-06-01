@@ -1,8 +1,8 @@
 import { Container, Theme } from '@mui/material'
 import React, { FC } from 'react'
-import AboutMe from '../components/bottom-content/AboutMe'
-import GetInTouch from '../components/bottom-content/GetInTouch'
-import Projects from '../components/bottom-content/Projects'
+import AboutMe from '../components/pages/AboutMe'
+import GetInTouch from '../components/pages/GetInTouch'
+import Projects from '../components/pages/Projects'
 
 interface Props {
     handlePageChange: (link: string) => void
@@ -22,7 +22,7 @@ const Pages: FC<Props> = ({
     getInTouchSelected,
 }) => {
     return (
-        <Container>
+        <Container maxWidth="xl">
             <div className="page-container">
                 <Projects
                     handlePageChange={handlePageChange}

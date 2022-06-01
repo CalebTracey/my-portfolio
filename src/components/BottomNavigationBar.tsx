@@ -4,7 +4,7 @@ import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import WorkIcon from '@mui/icons-material/Work'
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople'
-import ContactMailIcon from '@mui/icons-material/ContactMail'
+// import ContactMailIcon from '@mui/icons-material/ContactMail'
 import { Theme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 
@@ -49,15 +49,15 @@ const BottomNavigationBar: FC<Props> = ({
         }
     }
 
-    const handleGetInTouchSelected = (): void => {
-        setGetInTouchSelected(!getInTouchSelected)
-        if (projectsSelected) {
-            setProjectsSelected(false)
-        }
-        if (aboutMeSelected) {
-            setAboutMeSelected(false)
-        }
-    }
+    // const handleGetInTouchSelected = (): void => {
+    //     setGetInTouchSelected(!getInTouchSelected)
+    //     if (projectsSelected) {
+    //         setProjectsSelected(false)
+    //     }
+    //     if (aboutMeSelected) {
+    //         setAboutMeSelected(false)
+    //     }
+    // }
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -82,11 +82,11 @@ const BottomNavigationBar: FC<Props> = ({
                         icon={<WorkIcon />}
                         onClick={() => handleProjectsSelected()}
                     />
-                    <BottomNavigationAction
+                    {/* <BottomNavigationAction
                         label="Get in touch"
                         icon={<ContactMailIcon />}
                         onClick={() => handleGetInTouchSelected()}
-                    />
+                    /> */}
                 </BottomNavigation>
             </ThemeProvider>
         </Box>

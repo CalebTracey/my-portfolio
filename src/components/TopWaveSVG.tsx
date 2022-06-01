@@ -1,13 +1,15 @@
 /* eslint-disable max-len */
 import React, { FC } from 'react'
 
-const TopWave: FC = () => {
+const TopWaveSVG: FC = () => {
     return (
         <div className="wave__top">
             <svg
+                preserveAspectRatio="xMaxYMid meet"
                 className="scaling-svg__top"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
+                style={{ display: 'block' }}
             >
                 <path
                     fill="#3C415C"
@@ -19,4 +21,4 @@ const TopWave: FC = () => {
     )
 }
 
-export default TopWave
+export default TopWaveSVG
