@@ -230,7 +230,8 @@ svg {
   position: fixed;
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: auto;
+  // right: 3rem;
 }
 
 .button-wrapper {
@@ -242,6 +243,7 @@ svg {
     width: unset;
     top: 2rem;
     right: 6rem;
+    z-index: 30;
     
     
   }
@@ -250,6 +252,7 @@ svg {
     @extend %button-wrapper;
     bottom: 2rem;
     margin-right: 6rem;
+    width: auto;
   }
 }
 
@@ -393,7 +396,7 @@ svg {
 @media screen and (max-width: 430px) and (orientation: portrait) {
 }
 
-@media screen and (max-width: 900px) and (orientation: landscape) {
+@media screen and (max-width: 850px) and (orientation: landscape) {
   .portrait-card {
     height: 100%,
   }
@@ -423,6 +426,10 @@ svg {
 
   div.bottom-title {
     font-size: 1rem;
+  }
+
+  div.links {
+    width: 100%;
   }
 
   div.page-container {
@@ -488,6 +495,12 @@ svg {
 
   div.button-wrapper__down {
     position: relative;
+    right: 0;
+    margin-right: 0;
+  }
+
+  div.button-wrapper__up {
+    right: auto;
   }
 
   div.links {
