@@ -1,5 +1,5 @@
 import React, { useEffect, FC } from 'react'
-import { useSpring, animated } from '@react-spring/web'
+import { useSpring, animated, config } from '@react-spring/web'
 import { Theme } from '@mui/material'
 import Portrait from '../components/Portrait'
 import Links from './Links'
@@ -16,11 +16,12 @@ const PortraitCard: FC<Props> = ({
     handleWindowLocationHref,
 }) => {
     const [menuIn, setMenuIn] = useSpring(() => ({
-        left: '-100%',
+        left: '-300%',
+        config: config.slow,
     }))
 
     useEffect(() => {
-        setTimeout(() => setMenuIn({ left: '0px' }), 100)
+        setTimeout(() => setMenuIn({ left: '0px' }), 500)
     }, [setMenuIn])
 
     return (

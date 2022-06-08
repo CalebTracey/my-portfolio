@@ -101,7 +101,10 @@ const AboutMe: FC<Props> = ({ aboutMeSelected }) => {
                             </Stack>
                         </div>
 
-                        <div className="animated-text-container">
+                        <div
+                            className="animated-text-container bottom-text"
+                            // style={{ width: '70%' }}
+                        >
                             <Stack spacing={2} sx={{ marginTop: '2rem' }}>
                                 <AnimatedText
                                     text={text1}

@@ -218,12 +218,17 @@ svg {
       align-items: center;
       display: flex;
       flex-direction: column;
+      width: 30%;
     }
   }
 
   &__header {
     font-size: 2.5em;
   }
+}
+
+.bottom-text {
+  width: 70%;
 }
 
 %button-wrapper {
@@ -454,6 +459,10 @@ svg {
   div.animated-text-container {
     margin: 0;
     margin-top: 0;
+    width: 100%;
+  }
+
+  div.bottom-text {
     width: 100%;
   }
 

@@ -41,11 +41,13 @@ const ParallaxTop: FC<Props> = ({
                     endX={10}
                     fontSize="1.5rem"
                     usePaddingBottom
+                    delay={2000}
                 />
                 <AnimatedText
                     text={landingText}
                     fontSize="1.25rem"
                     fontColor="__dark"
+                    delay={3000}
                 />
             </div>
             <ParallaxButtonDown
