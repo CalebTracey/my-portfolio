@@ -4,7 +4,6 @@ import { Parallax, IParallax } from '@react-spring/parallax'
 import { createTheme } from '@mui/material/styles'
 import ParallaxTop from '../containers/ParallaxTop'
 import ParallaxBottom from '../containers/ParallaxBottom'
-// import ParallaxButtonDown from '../components/ParallaxButtonDown'
 
 const buttonTheme = createTheme({
     palette: {
@@ -26,11 +25,6 @@ const bottomNavTheme = createTheme({
 })
 
 const Parralax: FC = (): JSX.Element => {
-    // const [windowHeight] = useState(window.innerHeight)
-    // const [windowScrollY] = useState(window.scrollY)
-    // const [isDownButtonVisible, setIsDownButtonVisible] =
-    //     useState<boolean>(true)
-
     const parallax = useRef<IParallax | null>(null)
 
     const handlePageChange = (link: string): void => {
@@ -54,32 +48,22 @@ const Parralax: FC = (): JSX.Element => {
     }
 
     return (
-        <>
-            <Parallax className="parallax" ref={parallax} pages={2}>
-                <ParallaxTop
-                    scrollDown={scrollDown}
-                    handlePageChange={handlePageChange}
-                    handleWindowLocationHref={handleWindowLocationHref}
-                    buttonTheme={buttonTheme}
-                />
-
-                <ParallaxBottom
-                    scrollUp={scrollUp}
-                    handlePageChange={handlePageChange}
-                    handleWindowLocationHref={handleWindowLocationHref}
-                    buttonTheme={buttonTheme}
-                    bottomNavTheme={bottomNavTheme}
-                />
-            </Parallax>
-            {/* <ParallaxButtonDown
+        <Parallax className="parallax" ref={parallax} pages={2}>
+            <ParallaxTop
                 scrollDown={scrollDown}
+                handlePageChange={handlePageChange}
+                handleWindowLocationHref={handleWindowLocationHref}
                 buttonTheme={buttonTheme}
-                windowHeight={windowHeight}
-                windowScrollY={windowScrollY}
-                isDownButtonVisible={isDownButtonVisible}
-                setIsDownButtonVisible={setIsDownButtonVisible}
-            /> */}
-        </>
+            />
+
+            <ParallaxBottom
+                scrollUp={scrollUp}
+                handlePageChange={handlePageChange}
+                handleWindowLocationHref={handleWindowLocationHref}
+                buttonTheme={buttonTheme}
+                bottomNavTheme={bottomNavTheme}
+            />
+        </Parallax>
     )
 }
 

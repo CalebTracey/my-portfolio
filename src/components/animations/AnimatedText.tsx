@@ -1,4 +1,4 @@
-import React, { useEffect, FC } from 'react'
+import React, { useEffect, useState, FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 
 interface Props {
@@ -8,15 +8,31 @@ interface Props {
     delay?: number
     startX?: number
     endX?: number
+    usePaddingBottom?: boolean
 }
-const AnimatedText: FC<Props> = (props: Props): JSX.Element => {
-    const { text, fontSize, fontColor, delay, startX, endX } = props
+const AnimatedText: FC<Props> = ({
+    text,
+    fontSize,
+    fontColor,
+    usePaddingBottom,
+    delay,
+    startX,
+    endX,
+}): JSX.Element => {
+    const [paddingBottom, setPaddingBottom] = useState<'0' | '.5em'>('0')
     const [styles, api] = useSpring(() => ({
         from: { x: startX, opacity: 0 },
         config: { frequency: 1 },
     }))
-
     const className = `span-text${fontColor}`
+
+    useEffect(() => {
+        if (usePaddingBottom) {
+            setPaddingBottom('.5em')
+        } else if (paddingBottom === '.5em') {
+            setPaddingBottom('0')
+        }
+    }, [paddingBottom, usePaddingBottom, setPaddingBottom])
 
     useEffect(() => {
         api.start({ config: { velocity: 0 } })
@@ -37,7 +53,7 @@ const AnimatedText: FC<Props> = (props: Props): JSX.Element => {
                 ...styles,
             }}
         >
-            <span className={className} style={{ fontSize }}>
+            <span className={className} style={{ fontSize, paddingBottom }}>
                 {text}
             </span>
         </animated.div>
@@ -50,6 +66,7 @@ AnimatedText.defaultProps = {
     startX: -200,
     endX: 0,
     delay: 300,
+    usePaddingBottom: false,
 }
 
 export default AnimatedText

@@ -7,9 +7,12 @@ import ParallaxButtonDown from '../components/ParallaxButtonDown'
 import TopWave from '../components/TopWaveSVG'
 import AnimatedText from '../components/animations/AnimatedText'
 
-const landingText =
+const landingText1 =
     // eslint-disable-next-line max-len
-    "I'm a software engineer with a degree in Computer Science based in Portland, Maine."
+    "I'm a software engineer based in Portland, Maine."
+const landingText2 =
+    // eslint-disable-next-line max-len
+    'I build business applications and enjoy solving problems.'
 
 type Props = {
     scrollDown: () => void
@@ -39,13 +42,20 @@ const ParallaxTop: FC<Props> = ({
                     text="Hi There!"
                     startX={-100}
                     endX={10}
-                    fontSize="1.5rem"
+                    fontSize="1.65rem"
                     usePaddingBottom
                     delay={2000}
                 />
                 <AnimatedText
-                    text={landingText}
-                    fontSize="1.25rem"
+                    text={landingText1}
+                    fontSize="1.15rem"
+                    fontColor="__dark"
+                    delay={3000}
+                    usePaddingBottom
+                />
+                <AnimatedText
+                    text={landingText2}
+                    fontSize="1.15rem"
                     fontColor="__dark"
                     delay={3000}
                 />

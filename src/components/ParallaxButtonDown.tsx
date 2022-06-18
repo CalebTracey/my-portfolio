@@ -7,20 +7,12 @@ import { useSpring, animated } from '@react-spring/web'
 
 interface Props {
     scrollDown: () => void
-    // setIsDownButtonVisible: (isDownButtonVisible: boolean) => void
-    // isDownButtonVisible: boolean
     buttonTheme: Theme
-    // windowScrollY: number
-    // windowHeight: number
 }
 
 const ParallaxButtonDown: FC<Props> = ({
     scrollDown,
-    // setIsDownButtonVisible,
-    // isDownButtonVisible,
     buttonTheme,
-    // windowScrollY,
-    // windowHeight,
 }): JSX.Element => {
     const [icon, setIcon] = useSpring(() => ({
         scale: '1',
@@ -37,17 +29,6 @@ const ParallaxButtonDown: FC<Props> = ({
     const handleMouseLeave = (): void => {
         setIcon({ scale: '1' })
     }
-
-    // useEffect(() => {
-    //     const onScroll = (): void => {
-    //         if (windowHeight + windowScrollY >= document.body.offsetHeight) {
-    //             // console.log("you're at the bottom of the page")
-    //             setIsDownButtonVisible(false)
-    //         }
-    //     }
-    //     window.addEventListener('scroll', onScroll)
-    //     return () => window.removeEventListener('scroll', onScroll)
-    // }, [])
 
     return (
         <animated.div
@@ -68,10 +49,6 @@ const ParallaxButtonDown: FC<Props> = ({
             </ThemeProvider>
         </animated.div>
     )
-    // ) : (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    // <></>
-    // )
 }
 
 export default ParallaxButtonDown

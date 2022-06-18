@@ -141,6 +141,8 @@ $border: 1px solid $border-color;
   }
 
   &__italic {
+    @extend %header-font;
+    color: $header-font-color;
     font-style: italic;
   }
 }
@@ -184,7 +186,7 @@ svg {
   @extend %portrait;
 
   &__animated {
-    box-shadow: 0 0 0 1px whitesmoke;
+    // box-shadow: 0 0 0 1px whitesmoke;
     margin: 3rem;
     border-radius: 50%;
     transition: box-shadow 0.5s;
@@ -225,6 +227,10 @@ svg {
   &__header {
     font-size: 2.5em;
   }
+
+  &__subheader {
+    padding-top: .5rem;
+  }
 }
 
 .bottom-text {
@@ -236,27 +242,21 @@ svg {
   display: flex;
   justify-content: flex-end;
   width: auto;
-  // right: 3rem;
 }
 
 .button-wrapper {
 
   &__up {
     @extend %button-wrapper;
-    display: flex;
-    justify-content: unset;
-    width: unset;
     top: 2rem;
     right: 6rem;
-    z-index: 30;
-    
-    
+    width: auto;
   }
 
   &__down {
     @extend %button-wrapper;
     bottom: 2rem;
-    margin-right: 6rem;
+    right: 6rem;
     width: auto;
   }
 }
@@ -353,6 +353,11 @@ svg {
   }
 }
 
+.about-me {
+  display: flex;
+  flex-direction: row;
+}
+
 .animated-text-container {
   margin-top: 2rem;
   margin-left: 5%;
@@ -401,9 +406,371 @@ svg {
 @media screen and (max-width: 430px) and (orientation: portrait) {
 }
 
-@media screen and (max-width: 850px) and (orientation: landscape) {
+@media only screen and (min-width: 961px) {
+  /* styles for browsers larger than 960px; */
+  div.portrait__animated {
+    margin: 0;
+  }
+
+  div.bottom-text {
+    width: 100%;
+  }
+
+  div.bottom-title {
+    font-size: 1.25rem;
+  }
+
+  div.parallax__wrap-top {
+    top: 6rem;
+  }
+
+  div.parallax__wrap-left {
+    width: 100%;
+    height: 65%;
+  }
+
+  div.parallax__wrap-right {
+    width: 70%;
+    height: 25%;
+    padding-right: 10%;
+    justify-content: flex-start;
+  }
+
+  div.top-layer {
+    flex-direction: row;
+    justify-content: initial;
+  }
+
+  div.links {
+    padding-bottom: .5rem;
+  }
+
+  div.portrait__content__bot {
+    width: 30%;
+  }
+
+  div.about-me {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  div.animated-text-container {
+    margin: 0;
+    margin-top: 0;
+    width: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2rem;
+  }
+
+  div.page-container {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75%;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) */
+
+  span.portrait__header {
+    font-size: 2rem;
+  }
+  div.portrait__animated {
+    margin: 0;
+  }
+
+  div.bottom-text {
+    width: 100%;
+  }
+
+  div.bottom-title {
+    font-size: 1.25rem;
+  }
+
+  div.parallax__wrap-top {
+    top: 6rem;
+  }
+
+  div.parallax__wrap-left {
+    width: 100%;
+    height: 65%;
+  }
+
+  div.parallax__wrap-right {
+    width: 80%;
+    height: 25%;
+    justify-content: flex-start;
+  }
+
+  div.top-layer {
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  div.button-wrapper__down {
+    position: relative;
+    right: 0;
+    margin-right: 0;
+    bottom: 0;
+  }
+
+  div.button-wrapper__up {
+    right: auto;
+  }
+
+  div.links {
+    padding-bottom: .5rem;
+  }
+
+  div.portrait__content__bot {
+    width: 60%;
+  }
+
+  div.about-me {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.animated-text-container {
+    margin: 0;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  div.page-container {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75%;
+  }
+ }
+
+@media only screen and (min-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+  div.portrait__animated {
+    margin: 0;
+  }
+
+  div.bottom-text {
+    width: 100%;
+  }
+
+  div.bottom-title {
+    font-size: 1.25rem;
+  }
+
+  div.parallax__wrap-top {
+    top: 6rem;
+  }
+
+  div.parallax__wrap-left {
+    width: 40%;
+    height: 65%;
+  }
+
+  div.parallax__wrap-right {
+    width: 40%;
+    height: 25%;
+    padding-right: 20%;
+    justify-content: flex-start;
+  }
+
+  div.top-layer {
+    flex-direction: row;
+    justify-content: initial;
+  }
+
+
+  div.links {
+    padding-bottom: .5rem;
+  }
+
+  div.portrait__content__bot {
+    width: 30%;
+  }
+
+  div.about-me {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  div.animated-text-container {
+    margin: 0;
+    margin-top: 0;
+    width: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  div.page-container {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75%;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  /* for sumo sized (mac) screens */
+}
+
+@media only screen and (max-device-width: 480px) {
+ /* styles for mobile browsers smaller than 480px; (iPhone) */
+  div.portrait__animated {
+    margin: 0;
+  }
+
+  div.bottom-text {
+    width: 100%;
+  }
+
+  div.bottom-title {
+    font-size: 1.25rem;
+  }
+
+  div.parallax__wrap-top {
+    top: 6rem;
+  }
+
+  div.parallax__wrap-left {
+    width: 100%;
+    height: 60%;
+  }
+
+  div.parallax__wrap-right {
+    width: 80%;
+    height: 30%;
+    justify-content: flex-start;
+  }
+
+  div.top-layer {
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  div.button-wrapper__down {
+    position: relative;
+    right: 0;
+    margin-right: 0;
+    bottom: 0;
+  }
+
+  div.button-wrapper__up {
+    right: auto;
+  }
+
+  div.links {
+    padding-bottom: .5rem;
+  }
+
+  div.portrait__content__bot {
+    width: 100%;
+  }
+
+  div.about-me {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.animated-text-container {
+    margin: 0;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  div.page-container {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75%;
+  }
+}
+
+@media only screen and (device-width: 768px) {
+  /* default iPad screens */
+  div.portrait__animated {
+    margin: 0;
+  }
+
+  div.bottom-text {
+    width: 100%;
+  }
+
+  div.bottom-title {
+    font-size: 1.25rem;
+  }
+
+  div.parallax__wrap-top {
+    top: 6rem;
+  }
+
+  div.parallax__wrap-left {
+    width: 100%;
+    height: 65%;
+  }
+
+  div.parallax__wrap-right {
+    width: 85%;
+    height: 20%;
+    justify-content: flex-start;
+  }
+
+  div.top-layer {
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  div.button-wrapper__down {
+    position: relative;
+    right: 0;
+    margin-right: 0;
+    bottom: 0;
+  }
+
+  div.button-wrapper__up {
+    right: auto;
+  }
+
+  div.links {
+    padding-bottom: .5rem;
+  }
+
+  div.portrait__content__bot {
+    width: 100%;
+  }
+
+  div.about-me {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.animated-text-container {
+    margin: 0;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  div.page-container {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75%;
+  }
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+/* For portrait layouts only */
+}
+
+@media only screen and (max-device-width: 480px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
   .portrait-card {
     height: 100%,
+  }
+
+  div.about-me {
+    flex-direction: column;
   }
 
   .portrait__inner {
@@ -448,81 +815,4 @@ svg {
     padding: 0;
     padding-bottom: 80%; 
   }
-
-}
-
-@media screen and (max-width: 450px) {
-
-  div.portrait__animated {
-    margin: 0;
-  }
-  div.animated-text-container {
-    margin: 0;
-    margin-top: 0;
-    width: 100%;
-  }
-
-  div.bottom-text {
-    width: 100%;
-  }
-
-  div.bottom-title {
-    font-size: 1.25rem;
-  }
-
-  div.page-container {
-    padding: 1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    max-height: 75%;
-  }
-
-  div.portrait__content__bot {
-    width: 100%;
-
-  }
-
-  div.parallax__wrap-top {
-    top: 6rem;
-  }
-
-  div.parallax__wrap-left {
-    width: 100%;
-    height: 65%;
-  }
-
-  div.parallax__wrap-right {
-    width: 85%;
-    height: 20%;
-    justify-content: flex-start;
-  }
-
-  div.top-layer {
-    flex-direction: column;
-    justify-content: initial;
-  }
-
-  div.button-wrapper__down {
-    position: relative;
-    right: 0;
-    margin-right: 0;
-    bottom: 0;
-  }
-
-  div.button-wrapper__up {
-    right: auto;
-  }
-
-  div.links {
-    padding-bottom: .5rem;
-  }
-}
-
-@media screen and (min-width: 930px) {
-}
-
-@media screen and (min-width: 1065px) {
-}
-
-@media screen and (min-width: 601px) {
 }

@@ -39,6 +39,9 @@ const PortraitCard: FC<Props> = ({
                     <span className="span-header portrait__header">
                         Caleb Tracey
                     </span>
+                    <span className="span-header portrait__subheader">
+                        Software Engineer - Backend
+                    </span>
                     <Links
                         handlePageChange={handlePageChange}
                         handleWindowLocationHref={handleWindowLocationHref}
